@@ -1,0 +1,15 @@
+[package]
+name = "rust_integration_template"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+imgconv-core = { path = "imgconv-core" }
+
+[workspace]
+members = [
+    "imgconv-core",
+    "imgconv-cli",
+    "imgconv-ffi",
+    "imgconv-py"
+]
