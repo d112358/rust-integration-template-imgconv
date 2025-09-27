@@ -12,8 +12,8 @@
             "cwd": "${workspaceRoot}",
             "console": "integratedTerminal",
             "args": [
-                "data/pug_57.jpg",
-                "data/pug_57_converted_py.png"
+                "data/pug.jpg",
+                "data/pug_converted_py.png"
             ]
         },
         {
@@ -24,35 +24,57 @@
             "cwd": "${workspaceRoot}",
             "console": "integratedTerminal",
             "args": [
-                "data/pug_57.jpg",
-                "data/pug_57_converted_ffi.png"
+                "data/pug.jpg",
+                "data/pug_converted_ffi.png"
             ]
         },
         {
-            "name": "Debug: imgconv-cli",
+            "name": "Debug: imgconv-cli (Windows)",
             "type": "cppvsdbg",
             "request": "launch",
             "program": "${workspaceRoot}/target/debug/imgconv-cli.exe",
             "args": [
-                "data/pug_57.jpg",
-                "data/pug_57_converted_cli.png"
+                "data/pug.jpg",
+                "data/pug_converted_cli.png"
             ],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
             "console": "integratedTerminal"
         },
         {
-            "name": "Release: imgconv-cli",
+            "name": "Release: imgconv-cli (Windows)",
             "type": "cppvsdbg",
             "request": "launch",
             "program": "${workspaceRoot}/target/release/imgconv-cli.exe",
             "args": [
-                "${input:needle_arg}",
-                "${input:haystack_arg}"
+                "data/pug.jpg",
+                "data/pug_converted_cli.png"
             ],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
             "console": "integratedTerminal"
-        }
+        },
+        {
+            "name": "Debug: imgconv-cli (Linux)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/target/debug/imgconv-cli",
+            "args": [
+                "data/pug.jpg",
+                "data/pug_converted_cli.png"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Release: imgconv-cli (Linux)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/target/release/imgconv-cli",
+            "args": [
+                "data/pug.jpg",
+                "data/pug_converted_cli.png"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
     ]
 }

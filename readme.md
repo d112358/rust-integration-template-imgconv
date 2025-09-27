@@ -19,7 +19,7 @@ rust-integration-template/
 └── imgconv-py/ # Python extension module  
 ```
 
-## 🚀 Getting Started
+## 🚀 Getting Started (terminal)
 
 ### 1. Setup Python environment (required only for imgconv-py)
 #### Windows
@@ -35,17 +35,34 @@ source .venv/bin/activate
 pip install -U pip maturin
 ```
 
-### 2. Build everything
+### 2. Build crates and integration targets
 ```bash
 cargo build --release --workspace
 ```
 
-### 3. Run the CLI
+### 3. Run tests
 ```bash
-cargo run -p imgconv-cli -- input.jpg output.png
+cargo test --package imgconv-core --lib -- tests --show-output
 ```
 
-### 4. Use Python extension module (PyO3 + Maturin)
+### 4. Run the CLI
+```bash
+cargo run -p imgconv-cli -- data/pug.jpg data/pug_converted_cli.png
+```
+
+### 5. Use shared library (from Python via ctypes)
+```python
+import ctypes
+
+lib = ctypes.CDLL("target/release/libimgconv_ffi.so")  # or .dll / .dylib
+res = lib.convert_image_c(b"data/pug.jpg", b"data/pug_converted_ffi.png")
+if res == 0:
+    print("Success!")
+else:
+    print("Error:", res)
+```
+
+### 6. Use Python extension module (PyO3 + Maturin)
 Build and install locally:
 ```bash
 cd imgconv-py
@@ -54,20 +71,26 @@ maturin develop
 Then in Python:
 ```python
 import imgconv_py
-imgconv_py.convert_image_py("input.jpg", "output.png")
+imgconv_py.convert_image_py("data/pug.jpg", "data/pug_converted_py.png")
 ```
 
-### 5. Use shared library (from Python via ctypes)
-```python
-import ctypes
+## 🚀 Getting Started (VSCode)
 
-lib = ctypes.CDLL("target/release/libimgconv-ffi.so")  # or .dll / .dylib
-res = lib.convert_image_c(b"input.jpg", b"output.png")
-if res == 0:
-    print("Success!")
-else:
-    print("Error:", res)
-```
+### 1. Setup Python environment (required only for imgconv-py)
+* From the command palette (<kbd>Ctrl+Shift+P</kbd>), select `Python: Create Environment...` 
+* Select a `venv` environment, and name it `.venv`
+* Open the integrated terminal (<kbd>Ctrl+`</kbd>)
+* Activate the environment and install Maturing using the commands above
+
+### 2. Build crates and integration targets
+* **Terminal** > **Run Build Task...** (<kbd>Ctrl+Shift+B</kbd>) 
+* Select the crate to build from the menu that appears
+* To install the PyO3 creates in the virtual environment, select one of the Maturin build options
+
+### 3. Test crates and integration targets
+* Select a target under **Run and Debug** (<kbd>Ctrl+Shift+D</kbd>)
+* Run the target (<kbd>F5</kbd>)
+* To test the crate directly, open [imgconv-core/src/lib.rs](./imgconv-core/src/lib.rs) and click on the **Run Tests** CodeLens above the `Tests` module
 
 ## 🛠️ Dependencies
 * [image](https://crates.io/crates/image) – Rust image loading/encoding
@@ -86,6 +109,9 @@ This template can be reused for projects where:
 * Wrappers (`imgconv-cli`, `imgconv-ffi`, `imgconv-py`) are kept minimal and only handle integration concerns.
 * Pull requests adding new integration layers or extending the example are welcome.
 
+## Credits
+Sample image by [Bruce Galpin](https://unsplash.com/@star2dev?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/fawn-pug-jumping-on-water-h7oZAHnS9_E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+
 ## 📜 License
-MIT
+This repository is released under the MIT license. See [LICENSE](https://github.com/d112358/rust-integration-template-imgconv/blob/main/LICENSE) for additional details.
 

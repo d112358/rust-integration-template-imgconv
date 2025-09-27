@@ -10,8 +10,11 @@
                 "$rustc"
             ],
             "group": "build",
-            "args": ["--workspace"]
-        },{
+            "args": [
+                "--workspace"
+            ]
+        },
+        {
             "label": "Release build: all crates",
             "detail": "cargo build --release --workspace",
             "type": "cargo",
@@ -20,8 +23,12 @@
                 "$rustc"
             ],
             "group": "build",
-            "args": ["--release", "--workspace"]
-        },{
+            "args": [
+                "--release",
+                "--workspace"
+            ]
+        },
+        {
             "label": "Dev build: imgconv-core",
             "detail": "cargo build",
             "type": "cargo",
@@ -30,9 +37,12 @@
                 "$rustc"
             ],
             "group": "build",
-            "options": {"cwd": "${workspaceRoot}/imgconv-core"},
+            "options": {
+                "cwd": "${workspaceRoot}/imgconv-core"
+            },
             "args": []
-        },{
+        },
+        {
             "label": "Release build: imgconv-core",
             "detail": "cargo build --release",
             "type": "cargo",
@@ -41,9 +51,14 @@
                 "$rustc"
             ],
             "group": "build",
-            "options": {"cwd": "${workspaceRoot}/imgconv-core"},
-            "args": ["--release"]
-        },{
+            "options": {
+                "cwd": "${workspaceRoot}/imgconv-core"
+            },
+            "args": [
+                "--release"
+            ]
+        },
+        {
             "label": "Dev build: imgconv-cli",
             "detail": "cargo build",
             "type": "cargo",
@@ -52,9 +67,12 @@
                 "$rustc"
             ],
             "group": "build",
-            "options": {"cwd": "${workspaceRoot}/imgconv-cli"},
+            "options": {
+                "cwd": "${workspaceRoot}/imgconv-cli"
+            },
             "args": []
-        },{
+        },
+        {
             "label": "Release build: imgconv-cli",
             "detail": "cargo build --release",
             "type": "cargo",
@@ -63,9 +81,14 @@
                 "$rustc"
             ],
             "group": "build",
-            "options": {"cwd": "${workspaceRoot}/imgconv-cli"},
-            "args": ["--release"]
-        },{
+            "options": {
+                "cwd": "${workspaceRoot}/imgconv-cli"
+            },
+            "args": [
+                "--release"
+            ]
+        },
+        {
             "label": "Dev build: imgconv-ffi",
             "detail": "cargo build",
             "type": "cargo",
@@ -74,9 +97,12 @@
                 "$rustc"
             ],
             "group": "build",
-            "options": {"cwd": "${workspaceRoot}/imgconv-ffi"},
+            "options": {
+                "cwd": "${workspaceRoot}/imgconv-ffi"
+            },
             "args": []
-        },{
+        },
+        {
             "label": "Release build: imgconv-ffi",
             "detail": "cargo build --release",
             "type": "cargo",
@@ -85,22 +111,41 @@
                 "$rustc"
             ],
             "group": "build",
-            "options": {"cwd": "${workspaceRoot}/imgconv-ffi"},
-            "args": ["--release"]
-        },{
+            "options": {
+                "cwd": "${workspaceRoot}/imgconv-ffi"
+            },
+            "args": [
+                "--release"
+            ]
+        },
+        {
             "label": "Dev build: imgconv-py",
             "detail": "(.venv) maturin develop",
             "type": "shell",
             "command": "..\\.venv\\Scripts\\activate && maturin develop",
             "group": "build",
-            "options": {"cwd": "${workspaceRoot}/imgconv-py"}
-        },{
+            "options": {
+                "cwd": "${workspaceRoot}/imgconv-py"
+            }
+        },
+        {
             "label": "Release build: imgconv-py",
             "detail": "(.venv) maturin develop --release",
             "type": "shell",
             "command": "..\\.venv\\Scripts\\activate && maturin develop --release",
             "group": "build",
-            "options": {"cwd": "${workspaceRoot}/imgconv-py"}
+            "options": {
+                "cwd": "${workspaceRoot}/imgconv-py"
+            }
+        },
+        {
+            "type": "cargo",
+            "command": "build",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": "build",
+            "label": "rust: cargo build"
         }
     ]
 }

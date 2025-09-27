@@ -22,8 +22,8 @@ pub fn convert_image(input: &Path, output: &Path) -> Result<(), String> {
 
 /// Example function to demonstrate usage
 pub fn example() {
-    let input = Path::new("data/pug_57.jpg");
-    let output = Path::new("data/pug_57_converted_example.png");
+    let input = Path::new("data/pug.jpg");
+    let output = Path::new("data/pug_converted_example.png");
     match convert_image(input, output) {
         Ok(_) => println!("Converted {:?} -> {:?}", input, output),
         Err(e) => eprintln!("Error: {}", e),
@@ -37,8 +37,8 @@ mod tests {
     use std::path::PathBuf;
     #[test]
     fn test_convert_image() {
-        let input = PathBuf::from("../data/pug_57.jpg");
-        let output = PathBuf::from("../data/pug_57_converted_test.png");
+        let input = PathBuf::from("../data/pug.jpg");
+        let output = PathBuf::from("../data/pug_converted_test.png");
         // Ensure output file does not exist before test
         let _ = fs::remove_file(&output);
         let result = convert_image(&input, &output);
