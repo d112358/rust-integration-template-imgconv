@@ -12,11 +12,11 @@ substitute `imgconv` everywhere for a suitable project-specific prefix.
 ## 📦 Workspace Layout
 ```yaml
 rust-integration-template/  
-├── Cargo.toml # Workspace definition  
-├── imgconv-core/ # Pure Rust library crate with the core algorithm.  
-├── imgconv-cli/ # Command-line executable  
-├── imgconv-ffi/ # C-compatible shared library  
-└── imgconv-py/ # Python extension module  
+├── Cargo.toml      # Workspace definition  
+├── imgconv-core/   # Pure Rust library crate with the core algorithm.  
+├── imgconv-cli/    # Command-line executable  
+├── imgconv-ffi/    # C-compatible shared library  
+└── imgconv-py/     # Python extension module  
 ```
 
 ## 🚀 Getting Started (terminal)
@@ -80,12 +80,12 @@ imgconv_py.convert_image_py("data/pug.jpg", "data/pug_converted_py.png")
 * From the command palette (<kbd>Ctrl+Shift+P</kbd>), select `Python: Create Environment...` 
 * Select a `venv` environment, and name it `.venv`
 * Open the integrated terminal (<kbd>Ctrl+`</kbd>)
-* Activate the environment and install Maturing using the commands above
+* Activate the environment and install Maturin   using the commands above
 
 ### 2. Build crates and integration targets
 * **Terminal** > **Run Build Task...** (<kbd>Ctrl+Shift+B</kbd>) 
 * Select the crate to build from the menu that appears
-* To install the PyO3 creates in the virtual environment, select one of the Maturin build options
+* To install the PyO3 crate in the virtual environment, select one of the Maturin build options
 
 ### 3. Test crates and integration targets
 * Select a target under **Run and Debug** (<kbd>Ctrl+Shift+D</kbd>)
@@ -101,7 +101,7 @@ imgconv_py.convert_image_py("data/pug.jpg", "data/pug_converted_py.png")
 ## 📚 Use Cases
 This template can be reused for projects where:
 * Performance-critical algorithms are implemented in Rust.
-* You need multiple integration paths: CLI, C API, Python bindings.
+* Multiple integration paths are required: CLI, C API, Python bindings.
 * You want a clean separation of core logic and integration code.
 
 ## 🧩 Contributing
@@ -109,7 +109,7 @@ This template can be reused for projects where:
 * Wrappers (`imgconv-cli`, `imgconv-ffi`, `imgconv-py`) are kept minimal and only handle integration concerns.
 * Pull requests adding new integration layers or extending the example are welcome.
 
-## Credits
+## 👏 Acknowledgements
 Sample image by [Bruce Galpin](https://unsplash.com/@star2dev?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/fawn-pug-jumping-on-water-h7oZAHnS9_E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
 ## 📜 License
