@@ -14,7 +14,8 @@
             "args": [
                 "data/pug.jpg",
                 "data/pug_converted_py.png"
-            ]
+            ],
+            "preLaunchTask": "Dev build: imgconv-py"
         },
         {
             "name": "Debug: imgconv-ffi",
@@ -26,7 +27,8 @@
             "args": [
                 "data/pug.jpg",
                 "data/pug_converted_ffi.png"
-            ]
+            ],
+            "preLaunchTask": "Dev build: imgconv-ffi"
         },
         {
             "name": "Debug: imgconv-cli (Windows)",
@@ -39,7 +41,8 @@
             ],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "preLaunchTask": "Dev build: imgconv-cli"
         },
         {
             "name": "Release: imgconv-cli (Windows)",
@@ -52,7 +55,8 @@
             ],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "preLaunchTask": "Release build: imgconv-cli"
         },
         {
             "name": "Debug: imgconv-cli (Linux)",
@@ -63,7 +67,8 @@
                 "data/pug.jpg",
                 "data/pug_converted_cli.png"
             ],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Dev build: imgconv-cli"
         },
         {
             "name": "Release: imgconv-cli (Linux)",
@@ -74,7 +79,8 @@
                 "data/pug.jpg",
                 "data/pug_converted_cli.png"
             ],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Release build: imgconv-cli"
         },
     ]
 }
